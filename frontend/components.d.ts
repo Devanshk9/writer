@@ -16,6 +16,7 @@ declare module 'vue' {
     Form: typeof import('./src/components/Form.vue')['default']
     LucideBadgeCheck: typeof import('~icons/lucide/badge-check')['default']
     LucideCheck: typeof import('~icons/lucide/check')['default']
+    LucideLink2: typeof import('~icons/lucide/link2')['default']
     LucideMessageCircleCode: typeof import('~icons/lucide/message-circle-code')['default']
     LucideMessageCircleReply: typeof import('~icons/lucide/message-circle-reply')['default']
     LucideX: typeof import('~icons/lucide/x')['default']
