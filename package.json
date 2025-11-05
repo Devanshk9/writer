@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check-pnpm": "chmod +x ./scripts/install-pnpm.sh && ./scripts/install-pnpm.sh",
+    "frontend:pnpm_install": "npm run check-pnpm && cd frontend && pnpm install",
+    "postinstall": "echo 'Root postinstall disabled as workspaces are active'",
+    "dev": "cd frontend && pnpm dev",
+    "build": "npm run check-pnpm && cd frontend && pnpm install && pnpm build",
+    "upgrade-frappeui": "cd frontend && pnpm add frappe-ui@latest && cd ..",
+    "disable-workspaces": "chmod +x ./scripts/manage_workspaces.sh && ./scripts/manage_workspaces.sh disable",
+    "enable-workspaces": "chmod +x ./scripts/manage_workspaces.sh && ./scripts/manage_workspaces.sh enable"
+  },
+  "pnpm": {
+    "overrides": {
+      "yjs": "13.6.27"
+    }
+  },
+  "devDependencies": {
+    "cypress": "^14.5.2",
+    "cypress-file-upload": "^5.0.8"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.2.0",
+    "vue": "^3.5.22"
+  }
+}

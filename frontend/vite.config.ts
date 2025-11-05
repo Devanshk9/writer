@@ -17,7 +17,7 @@ export default defineConfig(async ({ mode }) => {
         lucideIcons: true,
         jinjaBootData: true,
         buildConfig: {
-          indexHtmlPath: "../drive/www/drive.html",
+          indexHtmlPath: "../writer/www/writer.html",
         },
       }),
       vue(),
