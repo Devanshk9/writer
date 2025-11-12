@@ -8,9 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "vite build",
     "preview": "vite preview",
-    "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix --cache",
     "format": "prettier --write src/"
@@ -27,7 +26,7 @@
     "@tiptap/vue-3": "2.26.1",
     "@vueuse/core": "^14.0.0",
     "date-fns": "^4.1.0",
-    "frappe-ui": "workspace:*",
+    "frappe-ui": "github:frappe/frappe-ui#6d80422203f2a7503e3060d6f8907bde1764b06a",
     "hast-util-to-html": "^9.0.5",
     "html2pdf.js": "^0.12.1",
     "idb-keyval": "^6.2.2",
@@ -39,6 +38,7 @@
     "tailwindcss": "^3.4.18",
     "tippy.js": "^6.3.7",
     "unplugin-auto-import": "0.15.0",
+    "unplugin-vue-components": "30.0.0",
     "uuid": "^13.0.0",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
