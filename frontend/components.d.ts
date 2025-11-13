@@ -10,8 +10,10 @@ declare module 'vue' {
   export interface GlobalComponents {
     ColorPicker: typeof import('./src/components/ColorPicker.vue')['default']
     CommentEditor: typeof import('./src/components/CommentEditor.vue')['default']
+    copy: typeof import('./src/components/NewVersionDialog copy.vue')['default']
     Dialogs: typeof import('./src/components/Dialogs.vue')['default']
     DocumentList: typeof import('./src/components/DocumentList.vue')['default']
+    FDialogs: typeof import('./src/components/FDialogs.vue')['default']
     FloatingComments: typeof import('./src/components/FloatingComments.vue')['default']
     Form: typeof import('./src/components/Form.vue')['default']
     LucideArrowLeft: typeof import('~icons/lucide/arrow-left')['default']

@@ -7,8 +7,6 @@
 export {}
 declare global {
   const LucideEye: typeof import('~icons/lucide/eye')['default']
-  const LucideFl: typeof import('~icons/lucide/fl')['default']
-  const LucideFlo: typeof import('~icons/lucide/flo')['default']
   const LucideLock: typeof import('~icons/lucide/lock')['default']
   const LucidePencil: typeof import('~icons/lucide/pencil')['default']
   const LucideTrash: typeof import('~icons/lucide/trash')['default']
