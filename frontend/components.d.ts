@@ -10,12 +10,13 @@ declare module 'vue' {
   export interface GlobalComponents {
     ColorPicker: typeof import('./src/components/ColorPicker.vue')['default']
     CommentEditor: typeof import('./src/components/CommentEditor.vue')['default']
-    copy: typeof import('./src/components/NewVersionDialog copy.vue')['default']
+    copy: typeof import('./src/components/WriterLogo copy.vue')['default']
     Dialogs: typeof import('./src/components/Dialogs.vue')['default']
     DocumentList: typeof import('./src/components/DocumentList.vue')['default']
     FDialogs: typeof import('./src/components/FDialogs.vue')['default']
     FloatingComments: typeof import('./src/components/FloatingComments.vue')['default']
     Form: typeof import('./src/components/Form.vue')['default']
+    FrappeDriveLogo: typeof import('./src/components/FrappeDriveLogo.vue')['default']
     LucideArrowLeft: typeof import('~icons/lucide/arrow-left')['default']
     LucideBadgeCheck: typeof import('~icons/lucide/badge-check')['default']
     LucideBuilding2: typeof import('~icons/lucide/building2')['default']
@@ -43,6 +44,7 @@ declare module 'vue' {
     ToC: typeof import('./src/components/ToC.vue')['default']
     UsersBar: typeof import('./src/components/UsersBar.vue')['default']
     VersionsSidebar: typeof import('./src/components/VersionsSidebar.vue')['default']
+    WriterLogo: typeof import('./src/components/WriterLogo.vue')['default']
     WriterSettings: typeof import('./src/components/WriterSettings.vue')['default']
   }
 }
