@@ -5,6 +5,7 @@
       variant="outline"
       type="number"
       v-model="size"
+      :min="1"
       :placeholder="font_size"
     />
     <Combobox
@@ -48,16 +49,17 @@ const STATIC_FONTS = [
 ]
 
 const selected = ref(null)
-const size = ref(null)
+const size = ref(props.font_size)
 
 watchEffect(() => {
   selected.value = FONT_FAMILIES.find((opt) =>
     opt.isActive(props.editor),
   )?.value
   let fontSize = props.editor.getAttributes('textStyle')?.fontSize
-  if (fontSize && typeof fontSize !== 'number')
+  if (fontSize && typeof fontSize !== 'number') {
     fontSize = +fontSize.slice(0, -2)
-  size.value = fontSize
+    size.value = fontSize
+  }
 })
 
 watch(selected, (val) => {
