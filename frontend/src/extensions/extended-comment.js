@@ -30,10 +30,11 @@ const createDecorations = (editor, yDoc, comments, active) => {
       Y.decodeRelativePosition(comment.anchor.to),
       ystate.binding.mapping,
     )
+    console.log('inn!', from, to)
     decos.push(
       Decoration.inline(from, to, {
         nodeName: 'span',
-        class: comment.id === active && 'active' ,
+        class: comment.id === active && 'active',
         'data-comment-id': comment.id,
       }),
     )
@@ -69,9 +70,8 @@ export const CommentHighlight = Extension.create({
             )
           },
 
-          apply(tr, oldSet, oldState, newState) {
-            const shouldRebuild = true
-            if (shouldRebuild) {
+          apply(tr, oldSet) {
+            if (tr.docChanged || tr.getMeta(commentPluginKey)?.rebuild) {
               const { doc, comments, activeComment } = ext.options
               return createDecorations(
                 ext.editor,

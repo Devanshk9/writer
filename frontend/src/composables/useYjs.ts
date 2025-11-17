@@ -7,6 +7,7 @@ import {
   absolutePositionToRelativePosition,
   ySyncPluginKey,
 } from 'y-prosemirror'
+import { commentPluginKey } from '@/extensions/extended-comment'
 
 import store from '@/store'
 
@@ -40,6 +41,9 @@ export function useYjs(document, editor, edited) {
         ...document.doc.updates.map(({ data }) => toUint8Array(data)),
       ]),
     )
+  if (document.doc.ycomments) {
+    Y.applyUpdate(commentsDoc, toUint8Array(document.doc.ycomments))
+  }
   let serverStateVector = Y.encodeStateVector(doc)
 
   const db = new IndexeddbPersistence('wdoc-' + document.doc.name, doc)
@@ -70,6 +74,7 @@ export function useYjs(document, editor, edited) {
       toast.error('Could not save document.')
     }
   }
+
   const autosave = debounce(save, 2000)
 
   // WebRTC for real-time P2P collaboration
@@ -87,15 +92,15 @@ export function useYjs(document, editor, edited) {
   const permanentUserData = new Y.PermanentUserData(doc)
   permanentUserData.setUserMapping(doc, doc.clientID, store.state.user.id)
 
-  doc.on('update', (update, origin) => {
-    if (origin === 'server') return
-    autosave()
+  doc.on('update', (_, origin) => {
+    if (origin !== 'server') autosave()
   })
 
   // Comments
   const comments = commentsDoc.getMap('comments')
   const newComment = (id, from, to, owner) => {
     const ystate = ySyncPluginKey.getState(editor.value.view.state)
+
     comments.set(id, {
       id,
       new: true,
@@ -120,6 +125,14 @@ export function useYjs(document, editor, edited) {
       },
       timestamp: Date.now(),
     })
+    editor.value.chain().command(({ tr }) => {
+      tr.setMeta(commentPluginKey, { rebuild: true })
+      return true
+    }).run()
+  }
+  const saveComments = async () => {
+    const data = fromUint8Array(Y.encodeStateAsUpdate(commentsDoc))
+    document.saveComments.submit({ data })
   }
   return {
     doc,
@@ -134,5 +147,6 @@ export function useYjs(document, editor, edited) {
     permanentUserData,
     comments,
     newComment,
+    saveComments,
   }
 }

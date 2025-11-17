@@ -1,17 +1,18 @@
 <template>
   <div class="flex flex-col w-full">
     <TextEditorFixedMenu
+      class="py-1.5 w-full max-w-[100vw] md:justify-center overflow-x-auto border-b border-outline-gray-modals flex shrink-0 transition-opacity duration-1"
       v-if="editable && !settings.minimal"
-      class="w-full max-w-[100vw] overflow-x-auto border-b border-outline-gray-modals justify-start md:justify-center py-1.5 shrink-0 transition-opacity duration-1"
-      :class="hideToolbar ? 'opacity-0' : 'opacity-100'"
       :buttons="menuButtons"
+      :class="hideToolbar ? 'opacity-0' : 'opacity-100'"
     />
 
     <div
       id="editorScrollContainer"
-      class="flex-1 flex w-full overflow-y-auto overflow-x-hidden"
+      class="flex-1 flex w-full overflow-y-auto"
       @mousemove="hideToolbar = false"
     >
+      <ToC :editor :anchors />
       <div
         class="mx-auto cursor-text w-full flex justify-center h-full"
         @click="
@@ -58,19 +59,15 @@
           </template>
         </FTextEditor>
       </div>
-      <ToC
-        v-show="anchors.length > 1"
-        :editor
-        :anchors
-        :class="editable ? 'top-24' : 'top-15'"
-      />
+
       <FloatingComments
         v-if="editor"
         :y-comments="comments"
-        v-model:show-comments="showComments"
         v-model:active-comment="activeComment"
+        :class="showComments ? 'opacity-100' : 'opacity-0'"
         :document
         :editor
+        @save="saveComments"
       />
     </div>
   </div>
@@ -96,7 +93,6 @@ import {
   provide,
 } from 'vue'
 import { EditorContent } from '@tiptap/vue-3'
-import * as Y from 'yjs'
 
 import Collaboration from '@tiptap/extension-collaboration'
 import { onKeyDown } from '@vueuse/core'
@@ -111,13 +107,9 @@ import emitter from '@/emitter'
 import { rename, allUsers } from 'frappe-ui/frappe/drive/js/resources'
 import { printDoc, getRandomColor } from '@/utils'
 import { formatDate } from '@/utils/format'
-import {} from '@/utils/'
 import FloatingQuoteButton from '@/extensions/comment'
 import MediaDownload from '@/extensions/media-download'
-import {
-  CommentHighlight,
-  commentPluginKey,
-} from '@/extensions/extended-comment'
+import { CommentHighlight } from '@/extensions/extended-comment'
 import { CollaborationCursor } from '@/extensions/collaboration-cursor'
 import { CharacterCount } from '@/extensions/character-count'
 import {
@@ -126,7 +118,7 @@ import {
 } from '@tiptap/extension-table-of-contents'
 import { useYjs } from '@/composables/useYjs'
 import FloatingComments from './FloatingComments.vue'
-import { useComments } from '@/composables/useComments'
+import { TabsExtension } from '@/extensions/tabs'
 
 const showComments = defineModel('showComments')
 const edited = ref(false)
@@ -165,11 +157,13 @@ const {
   permanentUserData,
   newComment,
   comments,
+  saveComments,
 } = useYjs(props.document, editor, edited)
 
 const editorExtensions = [
   COMMON_EXTENSIONS,
   CharacterCount,
+  TabsExtension,
   CommentHighlight.configure({
     comments,
     doc,
@@ -239,7 +233,7 @@ const menuButtons = computed(
         defineAsyncComponent(() => import('./ManageFont.vue')),
         {
           editor,
-          font_size: props.settings.font_size || 15,
+          font_size: props.settings.font_size || '15',
           font_family: props.settings.font_family || 'inter',
         },
       ),
@@ -396,18 +390,11 @@ emitter.on('print-file', () => {
 
 emitter.on('manual-save', manualSave)
 
-let autosave
+const autosave = setInterval(autoversion, 10 * 60 * 1000)
 onMounted(() => {
-  // const orderedComments = getOrderedComments(editor.value.state.doc)
-  // comments.value = props.entity.comments.toSorted((a, b) => {
-  //   const pos1 = orderedComments.findIndex((k) => k.id === a.name)
-  //   const pos2 = orderedComments.findIndex((k) => k.id === b.name)
-  //   return pos1 - pos2
-  // })
   const { view, state } = editor.value
   view.dispatch(state.tr)
   editor.value.on('create', applyTemplate)
-  autosave = setInterval(autoversion, 10 * 60 * 1000)
 })
 
 onBeforeUnmount(() => {
