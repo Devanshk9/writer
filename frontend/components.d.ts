@@ -42,6 +42,7 @@ declare module 'vue' {
     MarkdownEditor: typeof import('./src/components/MarkdownEditor.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     NewVersionDialog: typeof import('./src/components/NewVersionDialog.vue')['default']
+    NonCollabEditor: typeof import('./src/components/NonCollabEditor.vue')['default']
     NumberInput: typeof import('./src/components/controls/NumberInput.vue')['default']
     RemoveDialog: typeof import('./src/components/RemoveDialog.vue')['default']
     RoundedListView: typeof import('./src/components/RoundedListView.vue')['default']
