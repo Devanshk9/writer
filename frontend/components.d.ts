@@ -16,6 +16,7 @@ declare module 'vue' {
     ErrorPage: typeof import('./src/components/ErrorPage.vue')['default']
     FDialogs: typeof import('./src/components/FDialogs.vue')['default']
     FloatingComments: typeof import('./src/components/FloatingComments.vue')['default']
+    FontSelect: typeof import('./src/components/FontSelect.vue')['default']
     Form: typeof import('./src/components/Form.vue')['default']
     FrappeDriveLogo: typeof import('./src/components/FrappeDriveLogo.vue')['default']
     LucideArrowBigLeft: typeof import('~icons/lucide/arrow-big-left')['default']
