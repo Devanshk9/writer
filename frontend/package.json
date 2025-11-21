@@ -26,7 +26,7 @@
     "diff": "^8.0.2",
     "diff-match-patch": "^1.0.5",
     "diff2html": "^3.4.52",
-    "frappe-ui": "workspace:*",
+    "frappe-ui": "github:frappe/frappe-ui#28d1eaa442bb1e76865a89331d150c6ae56fe701",
     "hast-util-to-html": "^9.0.5",
     "html2pdf.js": "^0.12.1",
     "idb-keyval": "^6.2.2",
