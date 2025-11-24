@@ -32,6 +32,7 @@ declare module 'vue' {
     LucideLink2: typeof import('~icons/lucide/link2')['default']
     LucideMessageCircleCode: typeof import('~icons/lucide/message-circle-code')['default']
     LucideMessageCircleReply: typeof import('~icons/lucide/message-circle-reply')['default']
+    LucideMoveDiagonal2: typeof import('~icons/lucide/move-diagonal2')['default']
     LucideUser: typeof import('~icons/lucide/user')['default']
     LucideUsers: typeof import('~icons/lucide/users')['default']
     LucideX: typeof import('~icons/lucide/x')['default']
