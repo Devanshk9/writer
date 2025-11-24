@@ -28,7 +28,7 @@
     "diff": "^8.0.2",
     "diff-match-patch": "^1.0.5",
     "diff2html": "^3.4.52",
-    "frappe-ui": "github:frappe/frappe-ui#efc5aea99f6edea81b519e78a935061ab14354af",
+    "frappe-ui": "workspace:*",
     "hast-util-to-html": "^9.0.5",
     "html2pdf.js": "^0.12.1",
     "idb-keyval": "^6.2.2",
@@ -61,6 +61,7 @@
     "eslint-plugin-vue": "~10.5.0",
     "jiti": "^2.6.1",
     "prettier": "3.6.2",
+    "prosemirror-dev-tools": "^4.2.0",
     "typescript": "~5.9.0",
     "vite": "^4.5.14"
   }
