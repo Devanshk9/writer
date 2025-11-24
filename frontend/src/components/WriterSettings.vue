@@ -82,7 +82,7 @@
                     />
                   </div>
                 </div>
-                <div v-if="tabIndex === 1" class="flex flex-col gap-2 pb-5 pr-5">
+                <div v-if="tabIndex === 1" class="flex flex-col gap-2 pb-5 pr-5 [&_label]:text-xs [&_p]:text-xs">
                   <FormControl
                     v-model="settings.apply_watermark"
                     type="checkbox"
