@@ -12,6 +12,7 @@ declare global {
   const LucideFolderArchive: typeof import('~icons/lucide/folder-archive')['default']
   const LucideGlobe2: typeof import('~icons/lucide/globe2')['default']
   const LucideLock: typeof import('~icons/lucide/lock')['default']
+  const LucidePaintRoller: typeof import('~icons/lucide/paint-roller')['default']
   const LucideSettings: typeof import('~icons/lucide/settings')['default']
   const LucideTrash: typeof import('~icons/lucide/trash')['default']
 }
