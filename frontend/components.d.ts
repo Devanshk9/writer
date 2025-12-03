@@ -44,6 +44,7 @@ declare module 'vue' {
     RoundedListView: typeof import('./src/components/RoundedListView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SpacingDialog: typeof import('./src/components/SpacingDialog.vue')['default']
     TextEditor: typeof import('./src/components/TextEditor.vue')['default']
     ToC: typeof import('./src/components/ToC.vue')['default']
     UsersBar: typeof import('./src/components/UsersBar.vue')['default']
