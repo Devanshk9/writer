@@ -261,6 +261,9 @@ importers:
       '@tiptap/extension-mathematics':
         specifier: ^3.11.0
         version: 3.11.0(@tiptap/core@3.11.0(@tiptap/pm@3.11.0))(@tiptap/pm@3.11.0)(katex@0.16.25)
+      '@tiptap/extension-paragraph':
+        specifier: ^3.12.0
+        version: 3.13.0(@tiptap/core@3.11.0(@tiptap/pm@3.11.0))
       '@tiptap/extension-table-of-contents':
         specifier: ^3.11.0
         version: 3.11.0(@tiptap/core@3.11.0(@tiptap/pm@3.11.0))(@tiptap/pm@3.11.0)
@@ -303,6 +306,9 @@ importers:
       frappe-ui:
         specifier: workspace:*
         version: link:../frappe-ui
+      fuzzysort:
+        specifier: ^3.1.0
+        version: 3.1.0
       hast-util-to-html:
         specifier: ^9.0.5
         version: 9.0.5
@@ -1316,6 +1322,11 @@ packages:
     resolution: {integrity: sha512-hxgjZOXOqstRTWv+QjWJjK23rD5qzIV9ePlhX3imLeq/MgX0aU9VBDaG5SGKbSjaBNQnpLw6+sABJi3CDP6Z5A==}
     peerDependencies:
       '@tiptap/core': ^3.11.0
+
+  '@tiptap/extension-paragraph@3.13.0':
+    resolution: {integrity: sha512-9csQde1i0yeZI5oQQ9e1GYNtGL2JcC2d8Fwtw9FsGC8yz2W0h+Fmk+3bc2kobbtO5LGqupSc1fKM8fAg5rSRDg==}
+    peerDependencies:
+      '@tiptap/core': ^3.13.0
 
   '@tiptap/extension-placeholder@3.11.0':
     resolution: {integrity: sha512-wK67ZFBJ2CTV++MupftT3eKBy+CRuY7Z2AiO8uK4dyVt3ry5v/1G3QqARJrOsEKomdpONkd2cXaJGdEWZvh8EA==}
@@ -2664,6 +2675,9 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
+  fuzzysort@3.1.0:
+    resolution: {integrity: sha512-sR9BNCjBg6LNgwvxlBd0sBABvQitkLzoVY9MYYROQVX/FvfJ4Mai9LsGhDgd8qYdds0bY77VzYd5iuB+v5rwQQ==}
+
   gauge@3.0.2:
     resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==}
     engines: {node: '>=10'}
@@ -3076,6 +3090,7 @@ packages:
     resolution: {integrity: sha512-t0etAxTUk1w5MYdNOkZBZ8rvYYN5iL+2dHCCx/DpkFm/bW28M6y5nUS83D4XdZiHy35Fpaw6LBb+F88fHZnVCw==}
     engines: {node: '>=8.17.0'}
     hasBin: true
+    bundledDependencies: []
 
   jsonfile@6.2.0:
     resolution: {integrity: sha512-FGuPw30AdOIUTRMC2OMRtQV+jkVj2cfPqSeWXv1NEAJ1qZ5zb1X6z1mFhbfOB/iy3ssJCD+3KuZ8r8C3uVFlAg==}
@@ -5733,6 +5748,10 @@ snapshots:
     dependencies:
       '@tiptap/core': 3.11.0(@tiptap/pm@3.11.0)
 
+  '@tiptap/extension-paragraph@3.13.0(@tiptap/core@3.11.0(@tiptap/pm@3.11.0))':
+    dependencies:
+      '@tiptap/core': 3.11.0(@tiptap/pm@3.11.0)
+
   '@tiptap/extension-placeholder@3.11.0(@tiptap/extensions@3.11.0(@tiptap/core@3.11.0(@tiptap/pm@3.11.0))(@tiptap/pm@3.11.0))':
     dependencies:
       '@tiptap/extensions': 3.11.0(@tiptap/core@3.11.0(@tiptap/pm@3.11.0))(@tiptap/pm@3.11.0)
@@ -7283,6 +7302,8 @@ snapshots:
     optional: true
 
   function-bind@1.1.2: {}
+
+  fuzzysort@3.1.0: {}
 
   gauge@3.0.2:
     dependencies:
