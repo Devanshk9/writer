@@ -40,6 +40,7 @@ declare module 'vue' {
     NewVersionDialog: typeof import('./src/components/NewVersionDialog.vue')['default']
     NonCollabEditor: typeof import('./src/components/NonCollabEditor.vue')['default']
     NumberInput: typeof import('./src/components/controls/NumberInput.vue')['default']
+    PrintSettings: typeof import('./src/components/PrintSettings.vue')['default']
     RemoveDialog: typeof import('./src/components/RemoveDialog.vue')['default']
     RoundedListView: typeof import('./src/components/RoundedListView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

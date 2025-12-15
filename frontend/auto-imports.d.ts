@@ -6,6 +6,8 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const LucideAlignVerticalSpacing: typeof import('~icons/lucide/align-vertical-spacing')['default']
+  const LucideAlignVerticalSpacingAround: typeof import('~icons/lucide/align-vertical-spacing-around')['default']
   const LucideFile: typeof import('~icons/lucide/file')['default']
   const LucideFileText: typeof import('~icons/lucide/file-text')['default']
   const LucideFileUser: typeof import('~icons/lucide/file-user')['default']
